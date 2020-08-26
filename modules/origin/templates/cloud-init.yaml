@@ -1,0 +1,8 @@
+#cloud-config
+timezone: Europe/Berlin
+package_upgrade: True
+package_reboot_if_required: True
+packages:
+  - docker.io
+runcmd:
+  - docker run -d --restart always --name nginx --network host quay.io/cwtv/nginx-hls-origin
